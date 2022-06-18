@@ -1,19 +1,18 @@
 package com.my.user.attributes;
 
-import java.io.Serializable;
+import com.my.infrastructure.attributes.ValueObject;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 
-public final class Username implements Serializable {
+public final class Username extends ValueObject<String> {
 
     private static final String USER_NAME_REGEX = "^[a-zA-Z0-9]+(?:[_-]?[a-zA-Z0-9])*$";
 
-    private final String value;
 
     private Username(String value) {
-        this.value = value;
+        super(value);
     }
 
     public static Username of(String value) {
@@ -24,9 +23,5 @@ public final class Username implements Serializable {
                 "Username cannot star with special character or cannot end. You can only use a-z A-Z 0-9 _-");
 
         return new Username(value);
-    }
-
-    public String getValue() {
-        return value;
     }
 }

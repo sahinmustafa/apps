@@ -14,14 +14,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/all")
-    public ResponseEntity users(){
+    @GetMapping("")
+    public ResponseEntity<List<UserResponse>> users(){
         List<UserResponse> response = userService
                 .users()
                 .stream()
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity users(@PathVariable String id){
+    public ResponseEntity<UserResponse> users(@PathVariable String id){
         Optional<User> user = userService.fromId(id);
 
         return user.map(u -> ResponseEntity.ok(

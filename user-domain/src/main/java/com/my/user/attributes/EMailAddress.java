@@ -1,16 +1,16 @@
 package com.my.user.attributes;
 
+import com.my.infrastructure.attributes.ValueObject;
+
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-
-public final class EMailAddress {
+public final class EMailAddress extends ValueObject<String> {
 
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
-    private final String value;
 
     private EMailAddress(String value) {
-        this.value = value;
+        super(value);
     }
 
     public static EMailAddress of(String value){
@@ -20,7 +20,4 @@ public final class EMailAddress {
         return new EMailAddress(value);
     }
 
-    public String getValue() {
-        return value;
-    }
 }
