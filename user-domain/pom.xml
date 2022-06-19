@@ -18,6 +18,11 @@
             <artifactId>infrastructure</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.my</groupId>
+            <artifactId>aws-adapter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>

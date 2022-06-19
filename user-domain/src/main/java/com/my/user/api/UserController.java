@@ -1,5 +1,6 @@
 package com.my.user.api;
 
+import com.my.app.aws.adapter.sns.SnsPublisher;
 import com.my.user.User;
 import com.my.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
+
+    private final SnsPublisher publisher;
 
     @GetMapping("")
     public ResponseEntity<List<UserResponse>> users(){

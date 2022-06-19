@@ -1,12 +1,11 @@
-package com.my.infrastructure.amazon.dynamo;
-
+package com.my.app.aws.adapter.dynamo;
+/*
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import lombok.extern.slf4j.Slf4j;
-import org.reflections.Reflections;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -14,9 +13,9 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-@Slf4j
+@Slf4j*/
 public class DynamoDbTableCreator {
-
+/*
     private final AmazonDynamoDB amazonDynamoDB;
     private final DynamoDBMapper mapper;
 
@@ -51,6 +50,6 @@ public class DynamoDbTableCreator {
         DynamoDBTable annotation = clazz.getAnnotation(DynamoDBTable.class);
         return !existingTables.contains(annotation.tableName());
     }
-
+*/
 }
 

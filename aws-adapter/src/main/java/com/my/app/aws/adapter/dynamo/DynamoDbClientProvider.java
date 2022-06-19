@@ -1,4 +1,5 @@
-package com.my.infrastructure.amazon.dynamo;
+package com.my.app.aws.adapter.dynamo;
+
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.PropertySource;
 @RequiredArgsConstructor
 @EnableDynamoDBRepositories(basePackages = "com.my")
 @PropertySource("classpath:aws.properties")
-public class DynamoDbClientProvider {
+public class DynamoDbClientProvider{
 
     private final AWSCredentialsProvider credentialsProvider;
 
@@ -32,4 +33,5 @@ public class DynamoDbClientProvider {
                 .withRegion(Regions.DEFAULT_REGION)
                 .build();*/
     }
+
 }

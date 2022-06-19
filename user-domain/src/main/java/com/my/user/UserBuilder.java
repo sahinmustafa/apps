@@ -23,7 +23,6 @@ public class UserBuilder  {
         private EMailAddress email;
         private String fullname;
 
-
         @Override
         public PasswordField username(String username) {
             this.username = Username.of(username);
@@ -53,7 +52,6 @@ public class UserBuilder  {
             return new User(this);
         }
     }
-
 
     public interface UsernameField {
         PasswordField username(String username);
