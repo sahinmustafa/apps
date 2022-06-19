@@ -2,12 +2,13 @@ package com.my.user.attributes;
 
 import com.my.infrastructure.attributes.ValueObject;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
+import static com.my.infrastructure.validation.StringValidation.*;
 
 
 public final class Username extends ValueObject<String> {
 
+    private static final int MIN_LENGTH = 3;
+    private static final int MAX_LENGTH = 20;
     private static final String USER_NAME_REGEX = "^[a-zA-Z0-9]+(?:[_-]?[a-zA-Z0-9])*$";
 
 
@@ -16,11 +17,11 @@ public final class Username extends ValueObject<String> {
     }
 
     public static Username of(String value) {
-        checkNotNull(value, "Username cannot be null");
-        checkArgument(value.length() >= 3, "Username cannot be less than 3 character");
-        checkArgument(value.length() <= 20, "Username cannot be more than 20 character");
+        isNull(value, "Username cannot be null");
+        lessThan(value, MIN_LENGTH, "Username cannot be less than " + MIN_LENGTH + " character");
+        greaterThan(value, MAX_LENGTH, "Username cannot be more than " + MAX_LENGTH + " character");
         checkArgument(value.matches(USER_NAME_REGEX), "Username not valid! " +
-                "Username cannot star with special character or cannot end. You can only use a-z A-Z 0-9 _-");
+                "Username cannot start with special character or cannot end. You can only use a-z A-Z 0-9 _-");
 
         return new Username(value);
     }
